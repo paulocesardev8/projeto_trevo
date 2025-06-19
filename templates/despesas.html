@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastro de Despesas{% endblock %}
+
+{% block content %}
+<h2>Cadastro de Despesas</h2>
+
+<form method="POST">
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="habitacao">Habitação:</label>
+        <input type="number" step="0.01" id="habitacao" name="habitacao" class="form-control" required>
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="agua">Água:</label>
+        <input type="number" step="0.01" id="agua" name="agua" class="form-control" required>
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="energia">Energia:</label>
+        <input type="number" step="0.01" id="energia" name="energia" class="form-control" required>
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="telefone_internet">Telefone/Internet:</label>
+        <input type="number" step="0.01" id="telefone_internet" name="telefone_internet" class="form-control" required>
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="gas">Gás:</label>
+        <input type="number" step="0.01" id="gas" name="gas" class="form-control" required>
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="medicamentos_insumos">Medicamentos/Insumos:</label>
+        <input type="number" step="0.01" id="medicamentos_insumos" name="medicamentos_insumos" class="form-control" required>
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <button type="submit" class="btn">Salvar</button>
+        <a href="/inicio" class="btn">⬅ Voltar</a>
+    </div>
+</form>
+{% endblock %}

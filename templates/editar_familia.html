@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Família{% endblock %}
+
+{% block content %}
+<h2>Editar Cadastro</h2>
+
+<form method="POST" style="max-width: 600px; margin: auto; text-align: left;">
+    <h3>Dados Principais</h3>
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" value="{{ familia[1] }}" class="form-control" required>
+    
+    <label for="cpf">CPF:</label>
+    <input type="text" name="cpf" id="cpf" value="{{ familia[2] }}" class="form-control" required>
+    
+    <label for="telefone">Telefone:</label>
+    <input type="text" name="telefone" id="telefone" value="{{ familia[3] }}" class="form-control">
+    
+    <label for="endereco">Endereço:</label>
+    <input type="text" name="endereco" id="endereco" value="{{ familia[4] }}" class="form-control">
+    
+    <label for="data_nascimento">Data de Nascimento:</label>
+    <input type="date" name="data_nascimento" id="data_nascimento" value="{{ familia[5] }}" class="form-control">
+
+    <h3>Informações Complementares</h3>
+    {% if info_complementar %}
+        <label for="genero">Gênero:</label>
+        <input type="text" name="genero" id="genero" value="{{ info_complementar[2] }}" class="form-control">
+        
+        <label for="estado_civil">Estado Civil:</label>
+        <input type="text" name="estado_civil" id="estado_civil" value="{{ info_complementar[3] }}" class="form-control">
+        
+        <label for="naturalidade">Naturalidade:</label>
+        <input type="text" name="naturalidade" id="naturalidade" value="{{ info_complementar[4] }}" class="form-control">
+        
+        <label for="rg">RG:</label>
+        <input type="text" name="rg" id="rg" value="{{ info_complementar[5] }}" class="form-control">
+        
+        <label for="bairro">Bairro:</label>
+        <input type="text" name="bairro" id="bairro" value="{{ info_complementar[6] }}" class="form-control">
+        
+        <label for="cidade">Cidade:</label>
+        <input type="text" name="cidade" id="cidade" value="{{ info_complementar[7] }}" class="form-control">
+        
+        <label for="escolaridade">Escolaridade:</label>
+        <input type="text" name="escolaridade" id="escolaridade" value="{{ info_complementar[8] }}" class="form-control">
+        
+        <label for="profissao">Profissão:</label>
+        <input type="text" name="profissao" id="profissao" value="{{ info_complementar[9] }}" class="form-control">
+    {% else %}
+        <p>Sem informações complementares cadastradas.</p>
+    {% endif %}
+
+    <div style="margin-top: 20px;">
+        <button type="submit" class="btn">💾 Salvar Alterações</button>
+        <a href="/familias" class="btn">⬅ Voltar</a>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Informações Complementares{% endblock %}
+
+{% block content %}
+<h2>Informações Complementares</h2>
+<form method="POST" style="max-width: 600px; margin: auto;">
+    <label for="genero">Gênero:</label>
+    <input type="text" name="genero" class="form-control" required><br>
+
+    <label for="estado_civil">Estado Civil:</label>
+    <input type="text" name="estado_civil" class="form-control" required><br>
+
+    <label for="naturalidade">Naturalidade:</label>
+    <input type="text" name="naturalidade" class="form-control" required><br>
+
+    <label for="rg">RG:</label>
+    <input type="text" name="rg" class="form-control" required><br>
+
+    <label for="bairro">Bairro:</label>
+    <input type="text" name="bairro" class="form-control" required><br>
+
+    <label for="cidade">Cidade:</label>
+    <input type="text" name="cidade" class="form-control" required><br>
+
+    <label for="escolaridade">Escolaridade:</label>
+    <input type="text" name="escolaridade" class="form-control" required><br>
+
+    <label for="profissao">Profissão:</label>
+    <input type="text" name="profissao" class="form-control" required><br>
+
+    <button type="submit" class="btn">Salvar</button>
+    <a href="/inicio" class="btn">Voltar</a>
+</form>
+{% endblock %}

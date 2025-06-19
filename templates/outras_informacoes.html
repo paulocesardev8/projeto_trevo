@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastro de Outras Informações{% endblock %}
+
+{% block content %}
+<h2>Cadastro de Outras Informações</h2>
+
+<form method="POST">
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="auxilio_governo">Auxílio Governo:</label>
+        <input type="text" id="auxilio_governo" name="auxilio_governo" class="form-control">
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="valor_auxilio">Valor do Auxílio:</label>
+        <input type="number" step="0.01" id="valor_auxilio" name="valor_auxilio" class="form-control">
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="frequenta_cras">Frequenta CRAS:</label>
+        <input type="text" id="frequenta_cras" name="frequenta_cras" class="form-control">
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="qual_auxilio">Qual Auxílio:</label>
+        <input type="text" id="qual_auxilio" name="qual_auxilio" class="form-control">
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="comorbidade">Comorbidade:</label>
+        <input type="text" id="comorbidade" name="comorbidade" class="form-control">
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="observacoes">Observações:</label>
+        <textarea id="observacoes" name="observacoes" class="form-control"></textarea>
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <button type="submit" class="btn">Salvar</button>
+        <a href="/inicio" class="btn">⬅ Voltar</a>
+    </div>
+</form>
+{% endblock %}

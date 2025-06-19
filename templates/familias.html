@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Famílias Cadastradas{% endblock %}
+
+{% block content %}
+<h2>Famílias Cadastradas</h2>
+
+<form method="get" action="/familias">
+        <label for="cpf">Buscar CPF:</label><br>
+        <input type="text" name="cpf" id="cpf" placeholder="Digite o CPF completo"
+            style="padding: 10px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
+        <input type="submit" value="Buscar"
+            style="padding: 10px 20px; background-color: #2c3e50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    </form>
+
+<div style="margin-bottom: 100%; text-align: left;">
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Telefone</th>
+        <th>Endereço</th>
+        <th>Data de nascimento</th>
+        <th>Ações</th>
+    </tr>
+    {% for familia in familias %}
+    <tr>
+        <td>{{ familia[0] }}</td>
+        <td>{{ familia[1] }}</td>
+        <td>{{ familia[2] }}</td>
+        <td>{{ familia[3] }}</td>
+        <td>{{ familia[4] }}</td>
+        <td>
+    {% if familia[5] %}
+        {{ familia[5] | formatar_data }}
+    {% else %}
+        Não informado
+    {% endif %}
+</td>
+
+        <td>
+            <a href="/visualizar/{{ familia[0] }}">🔍</a> |
+            <a href="/editar/{{ familia[0] }}">✏️ </a> |
+            <a href="/deletar/{{ familia[0] }}" onclick="return confirm('Deseja mesmo excluir este cadastro?')">🗑️ </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div style="margin-top: 20px;">
+    <a href="/inicio" class="btn">⬅ Voltar</a>
+</div>
+
+{% endblock %}
+

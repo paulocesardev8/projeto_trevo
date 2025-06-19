@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Visualizar Família{% endblock %}
+
+{% block content %}
+<h2>Visualização Completa do Cadastro</h2>
+
+<h3>Informações Básicas</h3>
+{% if familia %}
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Data de Nascimento</th>
+        </tr>
+        <tr>
+            <td>{{ familia[1] }}</td>
+            <td>{{ familia[2] }}</td>
+            <td>{{ familia[3] }}</td>
+            <td>{{ familia[4] }}</td>
+            <td>{{ familia[5] | formatar_data }}</td>
+        </tr>
+    </table>
+{% else %}
+    <p>Sem informações básicas cadastradas.</p>
+{% endif %}
+
+
+<h3>Informações Complementares</h3>
+{% if info_complementar %}
+    <table>
+        <tr>
+            <th>Gênero</th>
+            <th>Estado Civil</th>
+            <th>Naturalidade</th>
+            <th>RG</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Escolaridade</th>
+            <th>Profissão</th>
+        </tr>
+        <tr>
+            <td>{{ info_complementar[2] }}</td>
+            <td>{{ info_complementar[3] }}</td>
+            <td>{{ info_complementar[4] }}</td>
+            <td>{{ info_complementar[5] }}</td>
+            <td>{{ info_complementar[6] }}</td>
+            <td>{{ info_complementar[7] }}</td>
+            <td>{{ info_complementar[8] }}</td>
+            <td>{{ info_complementar[9] }}</td>
+        </tr>
+    </table>
+{% else %}
+    <p>Sem informações complementares cadastradas.</p>
+{% endif %}
+
+
+<h3>Composição Familiar</h3>
+{% if membros %}
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>Parentesco</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>Trabalha/Estuda</th>
+            <th>Renda</th>
+        </tr>
+        {% for membro in membros %}
+        <tr>
+            <td>{{ membro[2] }}</td>
+            <td>{{ membro[3] | formatar_data }}</td>
+            <td>{{ membro[4] }}</td>
+            <td>{{ membro[5] }}</td>
+            <td>{{ membro[6] }}</td>
+            <td>{{ membro[7] }}</td>
+            <td>R$ {{ membro[8] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>Sem composição familiar cadastrada.</p>
+{% endif %}
+
+<h3>Moradia</h3>
+{% if moradia %}
+    <p><strong>Moradia:</strong> {{ moradia[2] }}</p>
+    <p><strong>Tipo de Moradia:</strong> {{ moradia[3] }}</p>
+{% else %}
+    <p>Sem informações de moradia cadastradas.</p>
+{% endif %}
+
+<h3>Despesas</h3>
+{% if despesas %}
+    <p><strong>Habitação:</strong> R$ {{ despesas[2] }}</p>
+    <p><strong>Água:</strong> R$ {{ despesas[3] }}</p>
+    <p><strong>Energia:</strong> R$ {{ despesas[4] }}</p>
+    <p><strong>Telefone/Internet:</strong> R$ {{ despesas[5] }}</p>
+    <p><strong>Gás:</strong> R$ {{ despesas[6] }}</p>
+    <p><strong>Medicamentos/Insumos:</strong> R$ {{ despesas[7] }}</p>
+{% else %}
+    <p>Sem informações de despesas cadastradas.</p>
+{% endif %}
+
+<h3>Outras Informações</h3>
+{% if outras_infos %}
+    <p><strong>Auxílio Governo:</strong> {{ outras_infos[2] }}</p>
+    <p><strong>Valor:</strong> R$ {{ outras_infos[3] }}</p>
+    <p><strong>Frequenta CRAS/CREAS:</strong> {{ outras_infos[4] }}</p>
+    <p><strong>Qual Auxílio:</strong> {{ outras_infos[5] }}</p>
+    <p><strong>Comorbidade:</strong> {{ outras_infos[6] }}</p>
+    <p><strong>Observações:</strong> {{ outras_infos[7] }}</p>
+    <p><strong>Data Registro:</strong> {{ outras_infos[8] | formatar_data }}</p>
+{% else %}
+    <p>Sem outras informações cadastradas.</p>
+{% endif %}
+
+<div style="margin-top: 20px;">
+    <a href="/familias" class="btn">⬅ Voltar</a>
+</div>
+{% endblock %}

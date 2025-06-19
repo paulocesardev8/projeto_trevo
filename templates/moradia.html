@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastro de Moradia{% endblock %}
+
+{% block content %}
+<h2>Cadastro de Moradia</h2>
+
+<form method="POST">
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="moradia">Moradia:</label>
+        <input type="text" id="moradia" name="moradia" class="form-control" required>
+    </div>
+
+    <div style="margin-bottom: 20px; text-align: left;">
+        <label for="tipo_moradia">Tipo de Moradia:</label>
+        <input type="text" id="tipo_moradia" name="tipo_moradia" class="form-control" required>
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <button type="submit" class="btn">Salvar</button>
+        <a href="/inicio" class="btn">⬅ Voltar</a>
+    </div>
+</form>
+{% endblock %}

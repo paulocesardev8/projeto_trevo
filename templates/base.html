@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fraternidade do Trevo{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f0f9ff, #f4f4f4);
+            margin: 0;
+            padding: 0;
+        }
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .logout:hover {
+            text-decoration: underline;
+        }
+
+       .conteudo {
+            margin-top: 90px;
+            padding: 40px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+
+        h1, h2 {
+            color: #2c3e50;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #1a252f;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .form-control {
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+}
+
+        .form-submit {
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            min-width: 160px;
+}
+
+.form-submit:hover {
+    background-color: #1a252f;
+}
+
+
+        .mensagem {
+            background-color: #e0ffe0;
+            color: green;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .menu-esquerda a,
+        .menu-direita a {
+            margin-right: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu-esquerda a:hover,
+        .menu-direita a:hover {
+            text-decoration: underline;
+        }
+
+        .menu-esquerda {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-direita {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="menu-esquerda">
+            <a href="/inicio" class="menu-link">🏠 Início</a>
+            <a href="/cadastro" class="menu-link">➕ Cadastrar</a>
+            <a href="/familias" class="menu-link">📋 Famílias</a>
+        </div>
+        <div class="menu-direita">
+            <span>Bem-vindo, {{ session['usuario'] }}</span>
+            <a href="/logout" class="logout">🚪 Sair</a>
+        </div>
+    </div>
+
+    <div class="conteudo">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

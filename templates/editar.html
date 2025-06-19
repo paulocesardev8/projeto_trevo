@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Cadastro{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+    <div style="background-color: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%; max-width: 600px;">
+        <h2 style="text-align: center; margin-bottom: 30px;">Editar Cadastro</h2>
+
+        <form method="POST">
+            <div style="margin-bottom: 20px; text-align: left;">
+                <label for="nome">Nome completo:</label>
+                <input type="text" id="nome" name="nome" value="{{ familia[1] }}" class="form-control" required>
+            </div>
+
+            <div style="margin-bottom: 20px; text-align: left;">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" value="{{ familia[2] }}" class="form-control" required>
+            </div>
+
+            <div style="margin-bottom: 20px; text-align: left;">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" value="{{ familia[3] }}" class="form-control">
+            </div>
+
+            <div style="margin-bottom: 20px; text-align: left;">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" value="{{ familia[4] }}" class="form-control">
+            </div>
+
+            <div style="margin-bottom: 30px; text-align: left;">
+                <label for="data_nascimento">Data de nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" value="{{ familia[5] }}" class="form-control">
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <button type="submit" class="form-submit">💾 Salvar</button>
+                <a href="/familias" class="btn">⬅ Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
